@@ -178,9 +178,16 @@
 
         // blogPopup Init
         function blogPopupInit() {
-            $(document).on('click', '.blog-link:not(.external)', function() {
-                // Chỉ xử lý popup với link nội bộ
-                var portfolioURL = $(this).attr('href');
+            $(document).on('click', '.blog-link', function(e) {
+                const portfolioURL = $(this).attr('href');
+            
+                // Nếu là link ngoài như Figma → mở tab mới
+                if (portfolioURL.includes('figma.com') || portfolioURL.startsWith('http')) {
+                    window.open(portfolioURL, '_blank');
+                    return false;
+                }
+            
+                // Nếu là link nội bộ → xử lý popup
                 $('body').addClass('popup-added');
                 $('.load-popup-content').addClass('shown');
                 setTimeout(function(){
