@@ -178,14 +178,15 @@
 
         // blogPopup Init
         function blogPopupInit() {
-            $(document).on('click', '.blog-link', function() {
+            $(document).on('click', '.blog-link:not(.external)', function() {
+                // Chỉ xử lý popup với link nội bộ
                 var portfolioURL = $(this).attr('href');
                 $('body').addClass('popup-added');
                 $('.load-popup-content').addClass('shown');
                 setTimeout(function(){
-                    $('.load-popup-content .popup-content-inner').load(portfolioURL+' .load-data > *', function() {
+                    $('.load-popup-content .popup-content-inner').load(portfolioURL + ' .load-data > *', function() {
                         $('.popup-loader').fadeOut(200);
-                    });;
+                    });
                     setTimeout(function(){
                         $('.load-popup-content').css('overflow-y','scroll');
                     }, 300);
