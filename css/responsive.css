@@ -194,3 +194,17 @@
 		margin-bottom: 20px;
 	}
 }
+
+@media(max-width: 1200px) {
+    .style_heroRight__KCUy1 {
+        flex:0 0 100%;
+        max-width: 100%;
+        margin-top: 65px
+    }
+}
+
+@media(max-width: 767px) {
+    .style_heroRight__KCUy1 {
+        margin-top:40px
+    }
+}
